@@ -335,6 +335,7 @@ GameObject:
   - component: {fileID: 1569277249}
   - component: {fileID: 1569277248}
   - component: {fileID: 1569277250}
+  - component: {fileID: 1569277251}
   m_Layer: 0
   m_Name: Jogador
   m_TagString: Untagged
@@ -408,3 +409,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadeDoJogador: 5
+--- !u!95 &1569277251
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569277246}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebf9e5bdf3a777a42a6aa6febbf1decd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
