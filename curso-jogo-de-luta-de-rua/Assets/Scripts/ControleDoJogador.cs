@@ -22,7 +22,7 @@ public class ControleDoJogador : MonoBehaviour
     private void Update()
     {
         ReceberInputs();
-        TocarAnimacoes();
+        RodarAnimacoesEAtaques();
         EspelharJogador();
         MovimentarJogador();
     }
@@ -33,8 +33,9 @@ public class ControleDoJogador : MonoBehaviour
         inputDeMovimento = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
-    private void TocarAnimacoes()
+    private void RodarAnimacoesEAtaques()
     {
+        // Rodam as animações de Parado e Andando
         if (inputDeMovimento.magnitude == 0)
         {
             oAnimator.SetTrigger("parado");
@@ -42,6 +43,17 @@ public class ControleDoJogador : MonoBehaviour
         else if (inputDeMovimento.magnitude != 0)
         {
             oAnimator.SetTrigger("andando");
+        }
+
+        // Rodam as animações de Soco e Chute
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            oAnimator.SetTrigger("socando");
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            oAnimator.SetTrigger("chutando");
         }
     }
 
@@ -60,7 +72,7 @@ public class ControleDoJogador : MonoBehaviour
 
     private void MovimentarJogador()
     {
-        // Movimentar o Jogador com base na sua direção
+        // Movimenta o Jogador com base na sua direção
         direcaoDoMovimento = inputDeMovimento.normalized;
         oRigidbody2D.velocity = direcaoDoMovimento * velocidadeDoJogador;
     }
