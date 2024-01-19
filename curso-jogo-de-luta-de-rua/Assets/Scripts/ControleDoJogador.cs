@@ -6,6 +6,7 @@ public class ControleDoJogador : MonoBehaviour
 {
     [Header("Referências Gerais")]
     private Rigidbody2D oRigidbody2D;
+    private Animator oAnimator;
 
     [Header("Movimento do Jogador")]
     [SerializeField] private float velocidadeDoJogador;
@@ -15,11 +16,13 @@ public class ControleDoJogador : MonoBehaviour
     private void Start()
     {
         oRigidbody2D = GetComponent<Rigidbody2D>();
+        oAnimator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         ReceberInputs();
+        TocarAnimacoes();
         EspelharJogador();
         MovimentarJogador();
     }
@@ -28,6 +31,18 @@ public class ControleDoJogador : MonoBehaviour
     {
         // Armazena a direção que o Jogador quer seguir
         inputDeMovimento = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+    }
+
+    private void TocarAnimacoes()
+    {
+        if (inputDeMovimento.magnitude == 0)
+        {
+            oAnimator.SetTrigger("parado");
+        }
+        else if (inputDeMovimento.magnitude != 0)
+        {
+            oAnimator.SetTrigger("andando");
+        }
     }
 
     private void EspelharJogador()
