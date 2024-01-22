@@ -501,6 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidadeDoJogador: 5
+  tempoMaximoEntreAtaques: 0.5
 --- !u!95 &1569277251
 Animator:
   serializedVersion: 4

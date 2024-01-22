@@ -13,6 +13,11 @@ public class ControleDoJogador : MonoBehaviour
     private Vector2 inputDeMovimento;
     private Vector2 direcaoDoMovimento;
 
+    [Header("Controle do Ataque")]
+    [SerializeField] private float tempoMaximoEntreAtaques;
+    private float tempoAtualEntreAtaques;
+    private bool podeAtacar;
+
     private void Start()
     {
         oRigidbody2D = GetComponent<Rigidbody2D>();
@@ -21,10 +26,22 @@ public class ControleDoJogador : MonoBehaviour
 
     private void Update()
     {
+        RodarCronometroDosAtaques();
         ReceberInputs();
         RodarAnimacoesEAtaques();
         EspelharJogador();
         MovimentarJogador();
+    }
+
+    private void RodarCronometroDosAtaques()
+    {
+        // Controla o tempo entre um ataque e outro
+        tempoAtualEntreAtaques -= Time.deltaTime;
+        if (tempoAtualEntreAtaques <= 0)
+        {
+            podeAtacar = true;
+            tempoAtualEntreAtaques = tempoMaximoEntreAtaques;
+        }
     }
 
     private void ReceberInputs()
@@ -35,7 +52,7 @@ public class ControleDoJogador : MonoBehaviour
 
     private void RodarAnimacoesEAtaques()
     {
-        // Rodam as animações de Parado e Andando
+        // Rodam as animações de Movimento (Parado e Andando)
         if (inputDeMovimento.magnitude == 0)
         {
             oAnimator.SetTrigger("parado");
@@ -45,15 +62,17 @@ public class ControleDoJogador : MonoBehaviour
             oAnimator.SetTrigger("andando");
         }
 
-        // Rodam as animações de Soco e Chute
-        if (Input.GetKeyDown(KeyCode.J))
+        // Rodam as animações de Ataque (Soco e Chute)
+        if (Input.GetKeyDown(KeyCode.J) && podeAtacar)
         {
             oAnimator.SetTrigger("socando");
+            podeAtacar = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) && podeAtacar)
         {
             oAnimator.SetTrigger("chutando");
+            podeAtacar = false;
         }
     }
 
