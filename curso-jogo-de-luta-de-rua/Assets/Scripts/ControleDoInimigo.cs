@@ -12,6 +12,9 @@ public class ControleDoInimigo : MonoBehaviour
     [SerializeField] private float velocidadeDoInimigo;
     private Vector2 direcaoDoMovimento;
 
+    [Header("Ataque do Inimigo")]
+    [SerializeField] private float distanciaParaAtacar;
+
     private void Start()
     {
         oRigidbody2D = GetComponent<Rigidbody2D>();
@@ -39,8 +42,16 @@ public class ControleDoInimigo : MonoBehaviour
 
     private void SeguirJogador()
     {
-        // Armazena a posição do Jogador e se movimenta à ela
-        direcaoDoMovimento = (oJogador.transform.position - transform.position).normalized;
-        oRigidbody2D.velocity = direcaoDoMovimento * velocidadeDoInimigo;
+        // Armazena a posição do Jogador e se movimenta a ele
+        if (Vector2.Distance(transform.position, oJogador.transform.position) > distanciaParaAtacar)
+        {
+            direcaoDoMovimento = (oJogador.transform.position - transform.position).normalized;
+            oRigidbody2D.velocity = direcaoDoMovimento * velocidadeDoInimigo;
+        }
+        // Deixa de se movimentar e ataca o Jogador
+        else
+        {
+            oRigidbody2D.velocity = Vector2.zero;
+        }
     }
 }
