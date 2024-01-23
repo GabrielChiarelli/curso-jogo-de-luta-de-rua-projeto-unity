@@ -6,6 +6,7 @@ public class ControleDoInimigo : MonoBehaviour
 {
     [Header("Referências Gerais")]
     private Rigidbody2D oRigidbody2D;
+    private Animator oAnimator;
     private GameObject oJogador;
 
     [Header("Movimento do Inimigo")]
@@ -18,6 +19,7 @@ public class ControleDoInimigo : MonoBehaviour
     private void Start()
     {
         oRigidbody2D = GetComponent<Rigidbody2D>();
+        oAnimator = GetComponent<Animator>();
         oJogador = FindObjectOfType<ControleDoJogador>().gameObject;
     }
 
@@ -29,7 +31,7 @@ public class ControleDoInimigo : MonoBehaviour
 
     private void EspelharInimigo()
     {
-        // Faz o Inimigo olhar na fireção do Jogador (Esquerda / Direita)
+        // Faz o Inimigo olhar na direção do Jogador (Esquerda / Direita)
         if (oJogador.transform.position.x > transform.position.x)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
@@ -47,11 +49,15 @@ public class ControleDoInimigo : MonoBehaviour
         {
             direcaoDoMovimento = (oJogador.transform.position - transform.position).normalized;
             oRigidbody2D.velocity = direcaoDoMovimento * velocidadeDoInimigo;
+
+            oAnimator.SetTrigger("andando");
         }
         // Deixa de se movimentar e ataca o Jogador
         else
         {
             oRigidbody2D.velocity = Vector2.zero;
+
+            oAnimator.SetTrigger("parado");
         }
     }
 }
