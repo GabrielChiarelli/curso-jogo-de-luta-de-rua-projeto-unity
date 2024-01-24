@@ -560,6 +560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadeDoInimigo: 2
   distanciaParaAtacar: 2
+  quantidadeDeAtaquesDoInimigo: 2
 --- !u!95 &762442561
 Animator:
   serializedVersion: 4

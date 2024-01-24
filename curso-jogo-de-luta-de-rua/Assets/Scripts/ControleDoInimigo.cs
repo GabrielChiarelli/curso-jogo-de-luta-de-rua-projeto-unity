@@ -15,6 +15,8 @@ public class ControleDoInimigo : MonoBehaviour
 
     [Header("Ataque do Inimigo")]
     [SerializeField] private float distanciaParaAtacar;
+    [SerializeField] private int quantidadeDeAtaquesDoInimigo;
+    private int ataqueAtualDoInimigo;
 
     private void Start()
     {
@@ -56,8 +58,29 @@ public class ControleDoInimigo : MonoBehaviour
         else
         {
             oRigidbody2D.velocity = Vector2.zero;
-
             oAnimator.SetTrigger("parado");
+
+            SortearAtaque();
+        }
+    }
+
+    private void SortearAtaque()
+    {
+        // Sorteia um dos ataques disponíveis e inicia esse ataque
+        ataqueAtualDoInimigo = Random.Range(0, quantidadeDeAtaquesDoInimigo);
+        IniciarAtaque();
+    }
+
+    private void IniciarAtaque()
+    {
+        // Muda o seu ataque para o ataque sorteado
+        if (ataqueAtualDoInimigo == 0)
+        {
+            oAnimator.SetTrigger("socando-fraco");
+        }
+        else if (ataqueAtualDoInimigo == 1)
+        {
+            oAnimator.SetTrigger("socando-forte");
         }
     }
 }
