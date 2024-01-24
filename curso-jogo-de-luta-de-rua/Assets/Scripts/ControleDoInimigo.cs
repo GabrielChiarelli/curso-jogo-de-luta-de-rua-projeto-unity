@@ -13,7 +13,11 @@ public class ControleDoInimigo : MonoBehaviour
     [SerializeField] private float velocidadeDoInimigo;
     private Vector2 direcaoDoMovimento;
 
-    [Header("Ataque do Inimigo")]
+    [Header("Controle do Ataque")]
+    [SerializeField] private float tempoMaximoEntreAtaques;
+    private float tempoAtualEntreAtaques;
+    private bool podeAtacar;
+
     [SerializeField] private float distanciaParaAtacar;
     [SerializeField] private int quantidadeDeAtaquesDoInimigo;
     private int ataqueAtualDoInimigo;
@@ -27,8 +31,20 @@ public class ControleDoInimigo : MonoBehaviour
 
     private void Update()
     {
+        RodarCronometroDosAtaques();
         EspelharInimigo();
         SeguirJogador();
+    }
+
+    private void RodarCronometroDosAtaques()
+    {
+        // Limita a quantidade de ataques consecutivos que o Inimigo pode realizar
+        tempoAtualEntreAtaques -= Time.deltaTime;
+        if (tempoAtualEntreAtaques <= 0)
+        {
+            podeAtacar = true;
+            tempoAtualEntreAtaques = tempoMaximoEntreAtaques;
+        }
     }
 
     private void EspelharInimigo()
@@ -68,7 +84,9 @@ public class ControleDoInimigo : MonoBehaviour
     {
         // Sorteia um dos ataques disponíveis e inicia esse ataque
         ataqueAtualDoInimigo = Random.Range(0, quantidadeDeAtaquesDoInimigo);
-        IniciarAtaque();
+
+        if (podeAtacar)
+            IniciarAtaque();
     }
 
     private void IniciarAtaque()
@@ -82,5 +100,7 @@ public class ControleDoInimigo : MonoBehaviour
         {
             oAnimator.SetTrigger("socando-forte");
         }
+
+        podeAtacar = false;
     }
 }
