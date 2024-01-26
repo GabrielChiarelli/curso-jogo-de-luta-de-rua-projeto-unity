@@ -48,6 +48,12 @@ public class ControleDoJogador : MonoBehaviour
     {
         // Armazena a direção que o Jogador quer seguir
         inputDeMovimento = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        // Testar dano do Jogador
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            GetComponent<VidaDoJogador>().LevarDano(1);
+        }
     }
 
     private void RodarAnimacoesEAtaques()
