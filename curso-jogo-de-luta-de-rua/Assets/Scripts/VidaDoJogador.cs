@@ -25,6 +25,8 @@ public class VidaDoJogador : MonoBehaviour
         {
             vidaAtual -= danoParaReceber;
 
+            GetComponent<ControleDoJogador>().RodarAnimacaoDeDano();
+
             if (vidaAtual <= 0)
             {
                 jogadorVivo = false;
