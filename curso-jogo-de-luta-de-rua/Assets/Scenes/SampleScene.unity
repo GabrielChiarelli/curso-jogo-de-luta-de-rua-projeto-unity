@@ -282,6 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 577647074}
   - component: {fileID: 577647075}
+  - component: {fileID: 577647076}
   m_Layer: 0
   m_Name: ColisorDoChute
   m_TagString: Untagged
@@ -330,6 +331,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &577647076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577647073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84b53bb669104843864a8d4ea17ff5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  danoDoGolpe: 2
 --- !u!1 &607936372
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +512,7 @@ GameObject:
   - component: {fileID: 762442558}
   - component: {fileID: 762442557}
   - component: {fileID: 762442560}
+  - component: {fileID: 762442562}
   - component: {fileID: 762442561}
   m_Layer: 0
   m_Name: Inimigo-Bill
@@ -596,6 +611,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &762442562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762442556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d5afce91fb6684696a2ad380e6a264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inimigoVivo: 0
+  vidaMaxima: 4
 --- !u!1 &796962577
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,6 +979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2076496777}
   - component: {fileID: 2076496778}
+  - component: {fileID: 2076496779}
   m_Layer: 0
   m_Name: ColisorDoSoco
   m_TagString: Untagged
@@ -998,3 +1028,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2076496779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076496776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84b53bb669104843864a8d4ea17ff5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  danoDoGolpe: 1
