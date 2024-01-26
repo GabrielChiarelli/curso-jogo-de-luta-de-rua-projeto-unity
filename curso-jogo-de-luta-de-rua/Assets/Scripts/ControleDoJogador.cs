@@ -18,19 +18,34 @@ public class ControleDoJogador : MonoBehaviour
     private float tempoAtualEntreAtaques;
     private bool podeAtacar;
 
+    [Header("Controle do Dano")]
+    [SerializeField] private float tempoMaximoDoDano;
+    private float tempoAtualDoDano;
+    private bool levouDano;
+
     private void Start()
     {
         oRigidbody2D = GetComponent<Rigidbody2D>();
         oAnimator = GetComponent<Animator>();
+
+        tempoAtualDoDano = tempoMaximoDoDano;
     }
 
     private void Update()
     {
         RodarCronometroDosAtaques();
-        ReceberInputs();
-        RodarAnimacoesEAtaques();
-        EspelharJogador();
-        MovimentarJogador();
+
+        if (!levouDano)
+        {
+            ReceberInputs();
+            RodarAnimacoesEAtaques();
+            EspelharJogador();
+            MovimentarJogador();
+        }
+        else
+        {
+            RodarCronometroDoDano();
+        }
     }
 
     private void RodarCronometroDosAtaques()
@@ -41,6 +56,19 @@ public class ControleDoJogador : MonoBehaviour
         {
             podeAtacar = true;
             tempoAtualEntreAtaques = tempoMaximoEntreAtaques;
+        }
+    }
+
+    private void RodarCronometroDoDano()
+    {
+        // Controla o congelar do Jogador ao levar dano
+        tempoAtualDoDano -= Time.deltaTime;
+        RodarAnimacaoDeDano();
+
+        if (tempoAtualDoDano <= 0)
+        {
+            levouDano = false;
+            tempoAtualDoDano = tempoMaximoDoDano;
         }
     }
 
@@ -104,7 +132,10 @@ public class ControleDoJogador : MonoBehaviour
 
     public void RodarAnimacaoDeDano()
     {
+        // Roda a animação de dano e zera a velocidade do Jogador
         oAnimator.SetTrigger("levando-dano");
-        Debug.Log("Jogador levou dano");
+        levouDano = true;
+
+        oRigidbody2D.velocity = Vector2.zero;
     }
 }
