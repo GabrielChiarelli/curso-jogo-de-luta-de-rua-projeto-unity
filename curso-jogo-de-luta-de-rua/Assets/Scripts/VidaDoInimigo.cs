@@ -24,6 +24,7 @@ public class VidaDoInimigo : MonoBehaviour
         if (inimigoVivo)
         {
             vidaAtual -= danoParaReceber;
+            GetComponent<ControleDoInimigo>().RodarAnimacaoDeDano();
 
             if (vidaAtual <= 0)
             {
