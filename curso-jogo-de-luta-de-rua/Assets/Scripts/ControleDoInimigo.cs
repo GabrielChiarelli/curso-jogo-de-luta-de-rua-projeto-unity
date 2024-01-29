@@ -31,9 +31,16 @@ public class ControleDoInimigo : MonoBehaviour
 
     private void Update()
     {
-        RodarCronometroDosAtaques();
-        EspelharInimigo();
-        SeguirJogador();
+        if (GetComponent<VidaDoInimigo>().inimigoVivo)
+        {
+            RodarCronometroDosAtaques();
+            EspelharInimigo();
+            SeguirJogador();
+        }
+        else
+        {
+            RodarAnimacaoDeDerrota();
+        }
     }
 
     private void RodarCronometroDosAtaques()
@@ -107,5 +114,11 @@ public class ControleDoInimigo : MonoBehaviour
     public void RodarAnimacaoDeDano()
     {
         oAnimator.SetTrigger("levando-dano");
+    }
+
+    public void RodarAnimacaoDeDerrota()
+    {
+        oAnimator.Play("inimigo-derrotado");
+        oRigidbody2D.velocity = Vector2.zero;
     }
 }
