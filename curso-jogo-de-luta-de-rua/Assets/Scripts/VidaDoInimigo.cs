@@ -12,6 +12,7 @@ public class VidaDoInimigo : MonoBehaviour
     private int vidaAtual;
     [SerializeField] private float tempoParaSumir;
 
+    [Header("Drop ao Morrer")]
     [SerializeField] private int chanceDeDroparComida;
     [SerializeField] private GameObject[] comidasParaDropar;
 
@@ -42,7 +43,16 @@ public class VidaDoInimigo : MonoBehaviour
 
     private void SpawnarComida()
     {
-        GameObject comidaEscolhida = comidasParaDropar[Random.Range(0, comidasParaDropar.Length)];
-        Instantiate(comidaEscolhida, transform.position, transform.rotation);
+        // Sorteia a chance de o Inimigo dropar a comida
+        int numeroAleatorio = Random.Range(0, 101);
+        //Debug.Log(numeroAleatorio);
+
+        // Roda se a chance estiver dentro do limite
+        if (numeroAleatorio <= chanceDeDroparComida)
+        {
+            // Sorteiam uma comida e criam uma cópia dela na cena
+            GameObject comidaEscolhida = comidasParaDropar[Random.Range(0, comidasParaDropar.Length)];
+            Instantiate(comidaEscolhida, transform.position, transform.rotation);
+        }
     }
 }

@@ -626,7 +626,7 @@ MonoBehaviour:
   inimigoVivo: 0
   vidaMaxima: 4
   tempoParaSumir: 2
-  chanceDeDroparComida: 0
+  chanceDeDroparComida: 60
   comidasParaDropar:
   - {fileID: 4395806962062947733, guid: 5599d6cde5addc341bb54ce89ab4f3ea, type: 3}
   - {fileID: 6267490246699490552, guid: cd0d0effb0dcf4d43bae3dda48594fa1, type: 3}
