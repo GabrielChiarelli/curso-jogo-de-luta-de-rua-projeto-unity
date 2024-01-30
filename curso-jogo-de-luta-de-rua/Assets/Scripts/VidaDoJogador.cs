@@ -18,6 +18,21 @@ public class VidaDoJogador : MonoBehaviour
         vidaAtual = vidaMaxima;
     }
 
+    public void GanharVida(int vidaParaGanhar)
+    {
+        // Roda se a vida atual somada com a vida para ganhar não superar o limite
+        if (vidaAtual + vidaParaGanhar <= vidaMaxima)
+        {
+            vidaAtual += vidaParaGanhar;
+        }
+        
+        // Roda se a vida atual somada com a vida para ganhar superar o limite
+        else
+        {
+            vidaAtual = vidaMaxima;
+        }
+    }
+
     public void LevarDano(int danoParaReceber)
     {
         // Aplica o dano no Jogador

@@ -126,6 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1135330364256007546}
   - component: {fileID: 8791150346960337741}
+  - component: {fileID: 1029155330}
   m_Layer: 0
   m_Name: Maca
   m_TagString: Untagged
@@ -175,3 +176,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.74010885, y: 0.74010885}
   m_EdgeRadius: 0
+--- !u!114 &1029155330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6267490246699490552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae1ed2012c7c6a42a2d2f935561ca36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaParaDar: 1

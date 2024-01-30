@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1814555142923400713}
   - component: {fileID: 9023204628674707444}
+  - component: {fileID: 325003205}
   m_Layer: 0
   m_Name: Queijo
   m_TagString: Untagged
@@ -143,6 +144,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.74010885, y: 0.74010885}
   m_EdgeRadius: 0
+--- !u!114 &325003205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7347875168204823204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae1ed2012c7c6a42a2d2f935561ca36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaParaDar: 1
 --- !u!1 &7985395713339416122
 GameObject:
   m_ObjectHideFlags: 0

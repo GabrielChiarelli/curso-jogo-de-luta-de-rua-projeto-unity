@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3963613789834997320}
   - component: {fileID: 6059876395315071410}
+  - component: {fileID: 1853362598}
   m_Layer: 0
   m_Name: Frango
   m_TagString: Untagged
@@ -91,6 +92,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2160087, y: 1.2160087}
   m_EdgeRadius: 0
+--- !u!114 &1853362598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4395806962062947733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae1ed2012c7c6a42a2d2f935561ca36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidaParaDar: 2
 --- !u!1 &8454359670414859608
 GameObject:
   m_ObjectHideFlags: 0
