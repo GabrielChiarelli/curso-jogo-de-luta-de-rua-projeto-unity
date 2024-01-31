@@ -30,12 +30,15 @@ public class VidaDoInimigo : MonoBehaviour
         {
             vidaAtual -= danoParaReceber;
             GetComponent<ControleDoInimigo>().RodarAnimacaoDeDano();
+            UIManager.instance.AtualizarBarraDeVidaDoInimigoAtual(vidaMaxima, vidaAtual);
 
             if (vidaAtual <= 0)
             {
                 inimigoVivo = false;
                 GetComponent<ControleDoInimigo>().RodarAnimacaoDeDerrota();
                 SpawnarComida();
+                UIManager.instance.DesativarPainelDoInimigo();
+
                 Destroy(this.gameObject, tempoParaSumir);
             }
         }
