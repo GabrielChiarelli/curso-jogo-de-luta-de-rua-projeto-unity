@@ -1579,6 +1579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc6474246a69254585cc1079884a72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barraDeVidaDoJogador: {fileID: 1169471635}
   painelDoInimigo: {fileID: 778825885}
   barraDeVidaDoInimigoAtual: {fileID: 46682760}
   textoDoNomeDoInimigoAtual: {fileID: 921530954}
