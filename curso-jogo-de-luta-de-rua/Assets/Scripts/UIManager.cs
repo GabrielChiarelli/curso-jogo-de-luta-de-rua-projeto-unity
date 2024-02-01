@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private GameObject painelDoInimigo;
     [SerializeField] private Slider barraDeVidaDoInimigoAtual;
-
+    [SerializeField] private TMP_Text textoDoNomeDoInimigoAtual;
+    
     private void Awake()
     {
         instance = this;
@@ -30,10 +32,12 @@ public class UIManager : MonoBehaviour
         painelDoInimigo.SetActive(false);
     }
 
-    public void AtualizarBarraDeVidaDoInimigoAtual(int valorMaximo, int valorAtual)
+    public void AtualizarBarraDeVidaDoInimigoAtual(int valorMaximo, int valorAtual, string nomeDoInimigo)
     {
         barraDeVidaDoInimigoAtual.maxValue = valorMaximo;
         barraDeVidaDoInimigoAtual.value = valorAtual;
+
+        textoDoNomeDoInimigoAtual.text = nomeDoInimigo;
 
         AtivarPainelDoInimigo();
     }

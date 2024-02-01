@@ -791,6 +791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inimigoVivo: 0
+  nomeDoInimigo: Bill
   vidaMaxima: 4
   tempoParaSumir: 2
   chanceDeDroparComida: 60
@@ -1335,6 +1336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   painelDoInimigo: {fileID: 778825885}
   barraDeVidaDoInimigoAtual: {fileID: 46682760}
+  textoDoNomeDoInimigoAtual: {fileID: 921530954}
 --- !u!4 &1347592646
 Transform:
   m_ObjectHideFlags: 0

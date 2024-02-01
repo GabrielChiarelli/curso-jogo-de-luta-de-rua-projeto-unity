@@ -7,6 +7,9 @@ public class VidaDoInimigo : MonoBehaviour
     [Header("Verificações")]
     public bool inimigoVivo;
 
+    [Header("Parâmetros")]
+    [SerializeField] private string nomeDoInimigo;
+
     [Header("Controle da Vida")]
     [SerializeField] private int vidaMaxima;
     private int vidaAtual;
@@ -30,7 +33,7 @@ public class VidaDoInimigo : MonoBehaviour
         {
             vidaAtual -= danoParaReceber;
             GetComponent<ControleDoInimigo>().RodarAnimacaoDeDano();
-            UIManager.instance.AtualizarBarraDeVidaDoInimigoAtual(vidaMaxima, vidaAtual);
+            UIManager.instance.AtualizarBarraDeVidaDoInimigoAtual(vidaMaxima, vidaAtual, nomeDoInimigo);
 
             if (vidaAtual <= 0)
             {
