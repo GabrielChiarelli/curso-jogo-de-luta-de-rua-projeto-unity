@@ -7,6 +7,9 @@ public class VidaDoJogador : MonoBehaviour
     [Header("Verificações")]
     public bool jogadorVivo;
 
+    [Header("Parâmetros")]
+    [SerializeField] private float tempoParaGameOver;
+
     [Header("Controle da Vida")]
     [SerializeField] private int vidaMaxima;
     private int vidaAtual;
@@ -22,18 +25,19 @@ public class VidaDoJogador : MonoBehaviour
 
     public void GanharVida(int vidaParaGanhar)
     {
-        // Roda se a vida atual somada com a vida para ganhar não superar o limite
+        // Se a vida atual somada com a vida para ganhar não superar o limite
         if (vidaAtual + vidaParaGanhar <= vidaMaxima)
         {
             vidaAtual += vidaParaGanhar;
         }
         
-        // Roda se a vida atual somada com a vida para ganhar superar o limite
+        // Se a vida atual somada com a vida para ganhar superar o limite
         else
         {
             vidaAtual = vidaMaxima;
         }
 
+        // Atualiza o status da Barra de Vida do Jogador
         UIManager.instance.AtualizarBarraDeVidaDoJogador(vidaMaxima, vidaAtual);
     }
 
@@ -47,11 +51,20 @@ public class VidaDoJogador : MonoBehaviour
             GetComponent<ControleDoJogador>().RodarAnimacaoDeDano();
             UIManager.instance.AtualizarBarraDeVidaDoJogador(vidaMaxima, vidaAtual);
 
+            // Se o Jogador morrer
             if (vidaAtual <= 0)
             {
                 jogadorVivo = false;
                 GetComponent<ControleDoJogador>().RodarAnimacaoDeDerrota();
+                StartCoroutine(AtivarGameOver());
             }
         }
+    }
+
+    private IEnumerator AtivarGameOver()
+    {
+        // Espera por X segundos e ativa o Painel de Game Over
+        yield return new WaitForSeconds(tempoParaGameOver);
+        UIManager.instance.AtivarPainelDeGameOver();
     }
 }

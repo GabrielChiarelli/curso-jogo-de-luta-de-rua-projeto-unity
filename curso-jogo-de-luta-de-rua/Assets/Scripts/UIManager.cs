@@ -8,6 +8,9 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
+    [Header("UI do Game Over")]
+    [SerializeField] private GameObject painelDeGameOver;
+
     [Header("UI do Jogador")]
     [SerializeField] private Slider barraDeVidaDoJogador;
 
@@ -50,5 +53,10 @@ public class UIManager : MonoBehaviour
         textoDoNomeDoInimigoAtual.text = nomeDoInimigo;
 
         AtivarPainelDoInimigo();
+    }
+
+    public void AtivarPainelDeGameOver()
+    {
+        painelDeGameOver.SetActive(true);
     }
 }
