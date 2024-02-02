@@ -50,7 +50,7 @@ public class VidaDoJogador : MonoBehaviour
             if (vidaAtual <= 0)
             {
                 jogadorVivo = false;
-                Debug.Log("Game Over");
+                GetComponent<ControleDoJogador>().RodarAnimacaoDeDerrota();
             }
         }
     }
