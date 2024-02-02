@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 481061105}
   - component: {fileID: 481061107}
   - component: {fileID: 481061106}
+  - component: {fileID: 481061108}
   m_Layer: 5
   m_Name: PainelDeGameOver
   m_TagString: Untagged
@@ -556,6 +557,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481061104}
   m_CullTransparentMesh: 1
+--- !u!114 &481061108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481061104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec76391e5383ab4cb85f4a304125bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nomeDoMenu: Menu
 --- !u!1 &499151353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,7 +2300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jogadorVivo: 0
   tempoParaGameOver: 1.8
-  vidaMaxima: 10
+  vidaMaxima: 1
 --- !u!1 &1593017413
 GameObject:
   m_ObjectHideFlags: 0
