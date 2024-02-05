@@ -13,6 +13,12 @@ public class ControleDoJogador : MonoBehaviour
     private Vector2 inputDeMovimento;
     private Vector2 direcaoDoMovimento;
 
+    [Header("Limites da Movimentação")]
+    [SerializeField] private float xMinimo;
+    [SerializeField] private float xMaximo;
+    [SerializeField] private float yMinimo;
+    [SerializeField] private float yMaximo;
+
     [Header("Controle do Ataque")]
     [SerializeField] private float tempoMaximoEntreAtaques;
     private float tempoAtualEntreAtaques;
@@ -135,6 +141,12 @@ public class ControleDoJogador : MonoBehaviour
         // Movimenta o Jogador com base na sua direção
         direcaoDoMovimento = inputDeMovimento.normalized;
         oRigidbody2D.velocity = direcaoDoMovimento * velocidadeDoJogador;
+
+        // Limita a movimentação horizontal do Jogador
+        oRigidbody2D.position = new Vector2(Mathf.Clamp(oRigidbody2D.position.x, xMinimo, xMaximo), oRigidbody2D.position.y);
+
+        // Limita a movimentação vertical do Jogador
+        oRigidbody2D.position = new Vector2(oRigidbody2D.position.x, Mathf.Clamp(oRigidbody2D.position.y, yMinimo, yMaximo));
     }
 
     public void RodarAnimacaoDeDano()
