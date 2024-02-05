@@ -8,6 +8,10 @@ public class CameraQueSegue : MonoBehaviour
     private GameObject oJogador;
     private Vector3 posicaoDoJogador;
 
+    [Header("Limites da Movimentação")]
+    [SerializeField] private float xMinimo;
+    [SerializeField] private float xMaximo;
+
     private void Start()
     {
         oJogador = FindObjectOfType<ControleDoJogador>().gameObject;
@@ -23,7 +27,8 @@ public class CameraQueSegue : MonoBehaviour
         // Armazena a posição do Jogador
         posicaoDoJogador = oJogador.transform.position;
 
-        // Deixa suas posição X igual à do Jogador
+        // Deixa sua posição X igual à do Jogador e impede que saia da tela
         transform.position = new Vector3(posicaoDoJogador.x, transform.position.y, transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, xMinimo, xMaximo), transform.position.y, transform.position.z);
     }
 }
