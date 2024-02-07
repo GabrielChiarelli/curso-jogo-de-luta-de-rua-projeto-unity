@@ -91,10 +91,10 @@ public class ControleDoJogador : MonoBehaviour
         inputDeMovimento = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         // Testar dano do Jogador
-        if (Input.GetKeyDown(KeyCode.L))
+        /*if (Input.GetKeyDown(KeyCode.L))
         {
             RodarAnimacaoDeDano();
-        }
+        }*/
     }
 
     private void RodarAnimacoesEAtaques()
@@ -114,12 +114,14 @@ public class ControleDoJogador : MonoBehaviour
         {
             oAnimator.SetTrigger("socando");
             podeAtacar = false;
+            SoundManager.instance.impactoSoco.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.K) && podeAtacar)
         {
             oAnimator.SetTrigger("chutando");
             podeAtacar = false;
+            SoundManager.instance.impactoChute.Play();
         }
     }
 
