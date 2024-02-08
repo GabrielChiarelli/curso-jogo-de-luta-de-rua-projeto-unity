@@ -846,6 +846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9787d5d516796a844b54d94017ad6920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tempoParaEscurecer: 0.5
+  tempoParaCarregarNovaFase: 2
   nomeDaProximaFase: Fase02
 --- !u!61 &565128372
 BoxCollider2D:
@@ -1920,6 +1922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc6474246a69254585cc1079884a72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oAnimatorDaTransicao: {fileID: 2051754575}
   painelDeGameOver: {fileID: 481061104}
   barraDeVidaDoJogador: {fileID: 1169471635}
   painelDoInimigo: {fileID: 778825885}
@@ -15122,6 +15125,10 @@ PrefabInstance:
     - target: {fileID: 8027410640139438494, guid: 4a3990dfbb27e56479bb74031e2c1c31, type: 3}
       propertyPath: m_Name
       value: AreaDeLuta03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027410640139438494, guid: 4a3990dfbb27e56479bb74031e2c1c31, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a3990dfbb27e56479bb74031e2c1c31, type: 3}
