@@ -13,6 +13,10 @@ public class SoundManager : MonoBehaviour
     public AudioSource inimigoLevandoDano;
     public AudioSource jogadorLevandoDano;
 
+    [Header("Músicas")]
+    [SerializeField] private AudioSource musicaDeFundo;
+    [SerializeField] private AudioSource musicaDeGameOver;
+
     private void Awake()
     {
         instance = this;
@@ -20,6 +24,18 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        
+        TocarMusicaDeFundo();
+    }
+
+    public void TocarMusicaDeFundo()
+    {
+        musicaDeGameOver.Stop();
+        musicaDeFundo.Play();
+    }
+
+    public void TocarMusicaDeGameOver()
+    {
+        musicaDeFundo.Stop();
+        musicaDeGameOver.Play();
     }
 }

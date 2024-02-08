@@ -7,6 +7,11 @@ public class PainelDeGameOver : MonoBehaviour
 {
     [SerializeField] private string nomeDoMenu;
 
+    private void Start()
+    {
+        SoundManager.instance.TocarMusicaDeGameOver();
+    }
+
     private void Update()
     {
         ReceberInputs();
