@@ -242,7 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inimigoVivo: 0
   nomeDoInimigo: Kane
-  vidaMaxima: 5
+  vidaMaxima: 8
   tempoParaSumir: 2
   chanceDeDroparComida: 60
   comidasParaDropar:

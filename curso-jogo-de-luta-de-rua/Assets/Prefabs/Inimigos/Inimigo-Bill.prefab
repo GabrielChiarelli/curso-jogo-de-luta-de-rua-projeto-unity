@@ -333,7 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inimigoVivo: 0
   nomeDoInimigo: Bill
-  vidaMaxima: 4
+  vidaMaxima: 5
   tempoParaSumir: 2
   chanceDeDroparComida: 60
   comidasParaDropar:

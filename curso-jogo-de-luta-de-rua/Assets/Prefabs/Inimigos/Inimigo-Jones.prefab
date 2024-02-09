@@ -326,7 +326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inimigoVivo: 0
   nomeDoInimigo: Jones
-  vidaMaxima: 3
+  vidaMaxima: 4
   tempoParaSumir: 2
   chanceDeDroparComida: 60
   comidasParaDropar:
