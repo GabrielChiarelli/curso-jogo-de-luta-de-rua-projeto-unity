@@ -19,7 +19,7 @@ public class Menu : MonoBehaviour
 
     public void SairDoJogo()
     {
-        Debug.Log("Saiu do Jogo");
+        //Debug.Log("Saiu do Jogo");
         Application.Quit();
     }
 }
