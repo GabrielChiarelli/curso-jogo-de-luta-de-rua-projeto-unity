@@ -12,13 +12,17 @@ public class CameraQueSegue : MonoBehaviour
     [SerializeField] private float xMinimo;
     [SerializeField] private float xMaximo;
 
+    [Header("Quando na Área de Luta")]
+    [SerializeField] private float velocidadeParaVoltarAoJogador;
     private bool podeSeguirJogador;
+    private bool voltandoParaJogador;
 
     private void Start()
     {
         oJogador = FindObjectOfType<ControleDoJogador>().gameObject;
 
         podeSeguirJogador = true;
+        voltandoParaJogador = false;
     }
 
     private void Update()
@@ -32,17 +36,26 @@ public class CameraQueSegue : MonoBehaviour
             DestravarCamera();
         }
 
+        GetPosicaoDoJogador();
+
         if (podeSeguirJogador)
         {
             SeguirJogador();
         }
+
+        if (voltandoParaJogador)
+        {
+            VoltarParaJogador();
+        }
+    }
+
+    private void GetPosicaoDoJogador()
+    {
+        posicaoDoJogador = oJogador.transform.position;
     }
 
     private void SeguirJogador()
     {
-        // Armazena a posição do Jogador
-        posicaoDoJogador = oJogador.transform.position;
-
         // Deixa sua posição X igual à do Jogador e impede que saia da tela
         transform.position = new Vector3(posicaoDoJogador.x, transform.position.y, transform.position.z);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, xMinimo, xMaximo), transform.position.y, transform.position.z);
@@ -55,6 +68,20 @@ public class CameraQueSegue : MonoBehaviour
 
     public void DestravarCamera()
     {
+        voltandoParaJogador = true;
+        StartCoroutine(VoltarASeguirJogadorCoroutine());
+    }
+
+    public void VoltarParaJogador()
+    {
+        Vector3 posicaoCentralizada = new Vector3(posicaoDoJogador.x, transform.position.y, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, posicaoCentralizada, velocidadeParaVoltarAoJogador * Time.deltaTime);
+    }
+
+    private IEnumerator VoltarASeguirJogadorCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
         podeSeguirJogador = true;
+        voltandoParaJogador = false;
     }
 }
