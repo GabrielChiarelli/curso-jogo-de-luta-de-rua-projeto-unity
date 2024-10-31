@@ -12,14 +12,30 @@ public class CameraQueSegue : MonoBehaviour
     [SerializeField] private float xMinimo;
     [SerializeField] private float xMaximo;
 
+    private bool podeSeguirJogador;
+
     private void Start()
     {
         oJogador = FindObjectOfType<ControleDoJogador>().gameObject;
+
+        podeSeguirJogador = true;
     }
 
     private void Update()
     {
-        SeguirJogador();
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            TravarCamera();
+        }
+        else if (Input.GetKeyDown(KeyCode.V))
+        {
+            DestravarCamera();
+        }
+
+        if (podeSeguirJogador)
+        {
+            SeguirJogador();
+        }
     }
 
     private void SeguirJogador()
@@ -30,5 +46,15 @@ public class CameraQueSegue : MonoBehaviour
         // Deixa sua posição X igual à do Jogador e impede que saia da tela
         transform.position = new Vector3(posicaoDoJogador.x, transform.position.y, transform.position.z);
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, xMinimo, xMaximo), transform.position.y, transform.position.z);
+    }
+
+    public void TravarCamera()
+    {
+        podeSeguirJogador = false;
+    }
+
+    public void DestravarCamera()
+    {
+        podeSeguirJogador = true;
     }
 }
