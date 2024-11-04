@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class VidaDoInimigo : MonoBehaviour
 {
+    [Header("Referências Gerais")]
+    private AreaDeLuta minhaAreaDeLuta;
+
     [Header("Verificações")]
     public bool inimigoVivo;
 
@@ -26,6 +29,11 @@ public class VidaDoInimigo : MonoBehaviour
         vidaAtual = vidaMaxima;
     }
 
+    public void ReceberMinhaAreaDeLuta(AreaDeLuta novaAreaDeLuta)
+    {
+        minhaAreaDeLuta = novaAreaDeLuta;
+    }
+
     public void LevarDano(int danoParaReceber)
     {
         // Aplica o dano no Inimigo
@@ -42,6 +50,8 @@ public class VidaDoInimigo : MonoBehaviour
                 GetComponent<ControleDoInimigo>().RodarAnimacaoDeDerrota();
                 SpawnarComida();
                 UIManager.instance.DesativarPainelDoInimigo();
+
+                minhaAreaDeLuta.IncrementarContagemDeInimigosDerrotados();
 
                 Destroy(this.gameObject, tempoParaSumir);
             }

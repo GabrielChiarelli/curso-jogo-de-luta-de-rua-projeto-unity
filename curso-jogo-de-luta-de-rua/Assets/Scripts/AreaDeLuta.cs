@@ -17,6 +17,7 @@ public class AreaDeLuta : MonoBehaviour
     [SerializeField] private GameObject[] inimigosParaSpawnar;
     private int inimigosSpawnados;
     private int inimigoAtual;
+    private int inimigosDerrotados;
 
     private void Start()
     {
@@ -25,6 +26,7 @@ public class AreaDeLuta : MonoBehaviour
 
         inimigosSpawnados = 0;
         inimigoAtual = 0;
+        inimigosDerrotados = 0;
     }
 
     private void Update()
@@ -54,9 +56,25 @@ public class AreaDeLuta : MonoBehaviour
         GameObject novoInimigo = inimigosParaSpawnar[inimigoAtual];
 
         // Spawna o novo Inimigo no local escolhido anteriormente
-        Instantiate(novoInimigo, pontoAleatorio.position, pontoAleatorio.rotation);
+        GameObject inimigoInstanciado = Instantiate(novoInimigo, pontoAleatorio.position, pontoAleatorio.rotation);
+        inimigoInstanciado.GetComponent<VidaDoInimigo>().ReceberMinhaAreaDeLuta(this);
+
         inimigoAtual += 1;
         inimigosSpawnados++;
+    }
+
+    public void IncrementarContagemDeInimigosDerrotados()
+    {
+        inimigosDerrotados += 1;
+        VerificarSeTodosInimigosForamDerrotados();
+    }
+
+    private void VerificarSeTodosInimigosForamDerrotados()
+    {
+        if (inimigosDerrotados == inimigosParaSpawnar.Length)
+        {
+            CameraQueSegue.instance.DestravarCamera();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -67,6 +85,7 @@ public class AreaDeLuta : MonoBehaviour
             {
                 podeSpawnar = true;
                 podeVerificarJogador = false;
+                CameraQueSegue.instance.TravarCamera();
             }
         }
     }

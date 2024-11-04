@@ -134,6 +134,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &53413265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 509924815438088547, guid: 4a3990dfbb27e56479bb74031e2c1c31, type: 3}
+  m_PrefabInstance: {fileID: 243707404290018814}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc86f19298409b4484b0bd2595be137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &118912671
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -268,6 +279,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 630956479087250445, guid: 89ffbc717b7360749b30af4f71c12c84, type: 3}
   m_PrefabInstance: {fileID: 630956478652611728}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &868464266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8372361467405343346, guid: 3ddc710559413cd43b298fecf7027ce8, type: 3}
+  m_PrefabInstance: {fileID: 5137231088349477909}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc86f19298409b4484b0bd2595be137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &921530954 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 630956479481679578, guid: 89ffbc717b7360749b30af4f71c12c84, type: 3}
@@ -397,6 +419,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1673326265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 604805236397042885, guid: a860b07efaeaf1b4cb7df28a4be6889f, type: 3}
+  m_PrefabInstance: {fileID: 604805235155593675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc86f19298409b4484b0bd2595be137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1903730596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12691,6 +12724,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 509924815438088547, guid: 4a3990dfbb27e56479bb74031e2c1c31, type: 3}
+      propertyPath: outrasAreasDeLuta.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 509924815438088547, guid: 4a3990dfbb27e56479bb74031e2c1c31, type: 3}
+      propertyPath: outrasAreasDeLuta.Array.data[0]
+      value: 
+      objectReference: {fileID: 1673326265}
+    - target: {fileID: 509924815438088547, guid: 4a3990dfbb27e56479bb74031e2c1c31, type: 3}
+      propertyPath: outrasAreasDeLuta.Array.data[1]
+      value: 
+      objectReference: {fileID: 868464266}
     - target: {fileID: 6596419886493224525, guid: 4a3990dfbb27e56479bb74031e2c1c31, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -12760,6 +12805,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 604805236397042885, guid: a860b07efaeaf1b4cb7df28a4be6889f, type: 3}
+      propertyPath: outrasAreasDeLuta.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 604805236397042885, guid: a860b07efaeaf1b4cb7df28a4be6889f, type: 3}
+      propertyPath: outrasAreasDeLuta.Array.data[0]
+      value: 
+      objectReference: {fileID: 868464266}
+    - target: {fileID: 604805236397042885, guid: a860b07efaeaf1b4cb7df28a4be6889f, type: 3}
+      propertyPath: outrasAreasDeLuta.Array.data[1]
+      value: 
+      objectReference: {fileID: 53413265}
     - target: {fileID: 604805236397042886, guid: a860b07efaeaf1b4cb7df28a4be6889f, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -13231,6 +13288,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8372361467405343346, guid: 3ddc710559413cd43b298fecf7027ce8, type: 3}
+      propertyPath: outrasAreasDeLuta.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372361467405343346, guid: 3ddc710559413cd43b298fecf7027ce8, type: 3}
+      propertyPath: outrasAreasDeLuta.Array.data[0]
+      value: 
+      objectReference: {fileID: 1673326265}
+    - target: {fileID: 8372361467405343346, guid: 3ddc710559413cd43b298fecf7027ce8, type: 3}
+      propertyPath: outrasAreasDeLuta.Array.data[1]
+      value: 
+      objectReference: {fileID: 53413265}
     - target: {fileID: 8478800645318953945, guid: 3ddc710559413cd43b298fecf7027ce8, type: 3}
       propertyPath: m_Name
       value: AreaDeLuta02

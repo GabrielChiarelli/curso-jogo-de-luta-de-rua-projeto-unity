@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraQueSegue : MonoBehaviour
 {
+    public static CameraQueSegue instance;
+
     [Header("Referências ao Jogador")]
     private GameObject oJogador;
     private Vector3 posicaoDoJogador;
@@ -16,6 +18,11 @@ public class CameraQueSegue : MonoBehaviour
     [SerializeField] private float velocidadeParaVoltarAoJogador;
     private bool podeSeguirJogador;
     private bool voltandoParaJogador;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
