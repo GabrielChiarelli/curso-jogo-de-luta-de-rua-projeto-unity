@@ -28,6 +28,7 @@ public class CameraQueSegue : MonoBehaviour
     {
         oJogador = FindObjectOfType<ControleDoJogador>().gameObject;
 
+        velocidadeParaVoltarAoJogador = 5f;
         podeSeguirJogador = true;
         voltandoParaJogador = false;
     }
@@ -71,6 +72,7 @@ public class CameraQueSegue : MonoBehaviour
     public void TravarCamera()
     {
         podeSeguirJogador = false;
+        FindObjectOfType<ControleDoJogador>().AtualizarLimiteXQuandoCameraTravada();
     }
 
     public void DestravarCamera()
@@ -87,6 +89,7 @@ public class CameraQueSegue : MonoBehaviour
 
     private IEnumerator VoltarASeguirJogadorCoroutine()
     {
+        FindObjectOfType<ControleDoJogador>().AtualizarLimiteXQuandoCameraDestravada();
         yield return new WaitForSeconds(1f);
         podeSeguirJogador = true;
         voltandoParaJogador = false;

@@ -13751,6 +13751,10 @@ PrefabInstance:
       propertyPath: xMaximo
       value: 67
       objectReference: {fileID: 0}
+    - target: {fileID: 3921131477267988647, guid: 8a5b0dfadba540646ad5b054364da5b3, type: 3}
+      propertyPath: velocidadeParaVoltarAoJogador
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a5b0dfadba540646ad5b054364da5b3, type: 3}
 --- !u!1001 &4105369720429610278
@@ -13953,6 +13957,14 @@ PrefabInstance:
     - target: {fileID: 6750326006725444709, guid: dfcd8c455143c20489b0ac2b82725ea7, type: 3}
       propertyPath: xMaximo
       value: 75.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750326006725444709, guid: dfcd8c455143c20489b0ac2b82725ea7, type: 3}
+      propertyPath: xMaximoOriginal
+      value: 75.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750326006725444709, guid: dfcd8c455143c20489b0ac2b82725ea7, type: 3}
+      propertyPath: xMinimoOriginal
+      value: -7.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfcd8c455143c20489b0ac2b82725ea7, type: 3}

@@ -13365,6 +13365,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jogador
       objectReference: {fileID: 0}
+    - target: {fileID: 6750326006725444709, guid: dfcd8c455143c20489b0ac2b82725ea7, type: 3}
+      propertyPath: xMaximoOriginal
+      value: 70.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750326006725444709, guid: dfcd8c455143c20489b0ac2b82725ea7, type: 3}
+      propertyPath: xMinimoOriginal
+      value: -7.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfcd8c455143c20489b0ac2b82725ea7, type: 3}
 --- !u!1001 &8036993419247120508

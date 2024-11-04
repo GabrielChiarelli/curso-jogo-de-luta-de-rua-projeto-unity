@@ -14,8 +14,12 @@ public class ControleDoJogador : MonoBehaviour
     private Vector2 direcaoDoMovimento;
 
     [Header("Limites da Movimentação")]
-    [SerializeField] private float xMinimo;
-    [SerializeField] private float xMaximo;
+    [SerializeField] private float xMinimoOriginal;
+    [SerializeField] private float xMaximoOriginal;
+
+    private float xMinimoAtual;
+    private float xMaximoAtual;
+
     [SerializeField] private float yMinimo;
     [SerializeField] private float yMaximo;
 
@@ -35,6 +39,9 @@ public class ControleDoJogador : MonoBehaviour
         oAnimator = GetComponent<Animator>();
 
         tempoAtualDoDano = tempoMaximoDoDano;
+
+        xMinimoAtual = xMinimoOriginal;
+        xMaximoAtual = xMaximoOriginal;
     }
 
     private void Update()
@@ -138,6 +145,18 @@ public class ControleDoJogador : MonoBehaviour
         }
     }
 
+    public void AtualizarLimiteXQuandoCameraTravada()
+    {
+        xMinimoAtual = transform.position.x - 8.0f;
+        xMaximoAtual = transform.position.x + 8.25f;
+    }
+
+    public void AtualizarLimiteXQuandoCameraDestravada()
+    {
+        xMinimoAtual = xMinimoOriginal;
+        xMaximoAtual = xMaximoOriginal;
+    }
+
     private void MovimentarJogador()
     {
         // Movimenta o Jogador com base na sua direção
@@ -145,7 +164,7 @@ public class ControleDoJogador : MonoBehaviour
         oRigidbody2D.velocity = direcaoDoMovimento * velocidadeDoJogador;
 
         // Limita a movimentação horizontal do Jogador
-        oRigidbody2D.position = new Vector2(Mathf.Clamp(oRigidbody2D.position.x, xMinimo, xMaximo), oRigidbody2D.position.y);
+        oRigidbody2D.position = new Vector2(Mathf.Clamp(oRigidbody2D.position.x, xMinimoAtual, xMaximoAtual), oRigidbody2D.position.y);
 
         // Limita a movimentação vertical do Jogador
         oRigidbody2D.position = new Vector2(oRigidbody2D.position.x, Mathf.Clamp(oRigidbody2D.position.y, yMinimo, yMaximo));
