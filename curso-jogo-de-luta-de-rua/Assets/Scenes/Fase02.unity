@@ -13631,6 +13631,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89ffbc717b7360749b30af4f71c12c84, type: 3}
+--- !u!1 &630956478652611729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 32263361, guid: 89ffbc717b7360749b30af4f71c12c84, type: 3}
+  m_PrefabInstance: {fileID: 630956478652611728}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1333769609010113319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13820,6 +13825,10 @@ PrefabInstance:
       propertyPath: painelDeGameOver
       value: 
       objectReference: {fileID: 481061104}
+    - target: {fileID: 4105369719082099939, guid: 3da7ccefd1c061244a08a966b037df9d, type: 3}
+      propertyPath: painelDaAreaDeLuta
+      value: 
+      objectReference: {fileID: 630956478652611729}
     - target: {fileID: 4105369719082099939, guid: 3da7ccefd1c061244a08a966b037df9d, type: 3}
       propertyPath: barraDeVidaDoJogador
       value: 

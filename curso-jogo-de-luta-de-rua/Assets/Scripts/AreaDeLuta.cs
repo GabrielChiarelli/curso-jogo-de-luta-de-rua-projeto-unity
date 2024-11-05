@@ -74,6 +74,7 @@ public class AreaDeLuta : MonoBehaviour
         if (inimigosDerrotados == inimigosParaSpawnar.Length)
         {
             CameraQueSegue.instance.DestravarCamera();
+            UIManager.instance.AtivarPainelDaAreaDeLuta();
         }
     }
 

@@ -20,6 +20,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject painelDoInimigo;
     [SerializeField] private Slider barraDeVidaDoInimigoAtual;
     [SerializeField] private TMP_Text textoDoNomeDoInimigoAtual;
+
+    [Header("UI da Área de Luta")]
+    [SerializeField] private GameObject painelDaAreaDeLuta;
+    [SerializeField] private float tempoParaDesativarPainelDaAreaDeLuta = 4.0f;
     
     private void Awake()
     {
@@ -30,6 +34,7 @@ public class UIManager : MonoBehaviour
     {
         DesativarPainelDoInimigo();
         ClarearImagemDeTransicao();
+        painelDaAreaDeLuta.SetActive(false);
     }
 
     private void ClarearImagemDeTransicao()
@@ -71,5 +76,17 @@ public class UIManager : MonoBehaviour
     public void AtivarPainelDeGameOver()
     {
         painelDeGameOver.SetActive(true);
+    }
+
+    public void AtivarPainelDaAreaDeLuta()
+    {
+        painelDaAreaDeLuta.SetActive(true);
+        StartCoroutine(DesativarPainelDaAreaDeLutaCoroutine());
+    }
+
+    private IEnumerator DesativarPainelDaAreaDeLutaCoroutine()
+    {
+        yield return new WaitForSeconds(tempoParaDesativarPainelDaAreaDeLuta);
+        painelDaAreaDeLuta.SetActive(false);
     }
 }
