@@ -75,6 +75,7 @@ public class AreaDeLuta : MonoBehaviour
         {
             CameraQueSegue.instance.DestravarCamera();
             UIManager.instance.AtivarPainelDaAreaDeLuta();
+            SoundManager.instance.setaDeProssiga.Play();
         }
     }
 

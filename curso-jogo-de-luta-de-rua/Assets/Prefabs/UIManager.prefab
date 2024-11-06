@@ -50,3 +50,5 @@ MonoBehaviour:
   painelDoInimigo: {fileID: 0}
   barraDeVidaDoInimigoAtual: {fileID: 0}
   textoDoNomeDoInimigoAtual: {fileID: 0}
+  painelDaAreaDeLuta: {fileID: 0}
+  tempoParaDesativarPainelDaAreaDeLuta: 4.5

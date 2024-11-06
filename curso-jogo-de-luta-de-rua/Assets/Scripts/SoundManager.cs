@@ -12,6 +12,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource pegarComida;
     public AudioSource inimigoLevandoDano;
     public AudioSource jogadorLevandoDano;
+    public AudioSource setaDeProssiga;
 
     [Header("Músicas")]
     [SerializeField] private AudioSource musicaDeFundo;

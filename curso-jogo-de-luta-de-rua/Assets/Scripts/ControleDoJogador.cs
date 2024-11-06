@@ -148,7 +148,7 @@ public class ControleDoJogador : MonoBehaviour
     public void AtualizarLimiteXQuandoCameraTravada()
     {
         xMinimoAtual = transform.position.x - 8.0f;
-        xMaximoAtual = transform.position.x + 8.25f;
+        xMaximoAtual = transform.position.x + 8.0f;
     }
 
     public void AtualizarLimiteXQuandoCameraDestravada()

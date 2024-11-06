@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
 
     [Header("UI da Área de Luta")]
     [SerializeField] private GameObject painelDaAreaDeLuta;
-    [SerializeField] private float tempoParaDesativarPainelDaAreaDeLuta = 4.0f;
+    [SerializeField] private float tempoParaDesativarPainelDaAreaDeLuta = 4.5f;
     
     private void Awake()
     {
