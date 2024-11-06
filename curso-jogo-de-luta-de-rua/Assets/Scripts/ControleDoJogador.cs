@@ -27,6 +27,7 @@ public class ControleDoJogador : MonoBehaviour
     [SerializeField] private float tempoMaximoEntreAtaques;
     private float tempoAtualEntreAtaques;
     private bool podeAtacar;
+    private bool estaAtacando;
 
     [Header("Controle do Dano")]
     [SerializeField] private float tempoMaximoDoDano;
@@ -38,6 +39,8 @@ public class ControleDoJogador : MonoBehaviour
         oRigidbody2D = GetComponent<Rigidbody2D>();
         oAnimator = GetComponent<Animator>();
 
+        podeAtacar = true;
+        estaAtacando = false;
         tempoAtualDoDano = tempoMaximoDoDano;
 
         xMinimoAtual = xMinimoOriginal;
@@ -48,7 +51,10 @@ public class ControleDoJogador : MonoBehaviour
     {
         if (GetComponent<VidaDoJogador>().jogadorVivo)
         {
-            RodarCronometroDosAtaques();
+            if (estaAtacando)
+            {
+                RodarCronometroDosAtaques();
+            }
 
             if (!levouDano)
             {
@@ -75,6 +81,7 @@ public class ControleDoJogador : MonoBehaviour
         if (tempoAtualEntreAtaques <= 0)
         {
             podeAtacar = true;
+            estaAtacando = false;
             tempoAtualEntreAtaques = tempoMaximoEntreAtaques;
         }
     }
@@ -121,6 +128,7 @@ public class ControleDoJogador : MonoBehaviour
         {
             oAnimator.SetTrigger("socando");
             podeAtacar = false;
+            estaAtacando = true;
             SoundManager.instance.impactoSoco.Play();
         }
 
@@ -128,6 +136,7 @@ public class ControleDoJogador : MonoBehaviour
         {
             oAnimator.SetTrigger("chutando");
             podeAtacar = false;
+            estaAtacando = true;
             SoundManager.instance.impactoChute.Play();
         }
     }
@@ -159,15 +168,22 @@ public class ControleDoJogador : MonoBehaviour
 
     private void MovimentarJogador()
     {
-        // Movimenta o Jogador com base na sua direção
-        direcaoDoMovimento = inputDeMovimento.normalized;
-        oRigidbody2D.velocity = direcaoDoMovimento * velocidadeDoJogador;
+        if (!estaAtacando)
+        {
+            // Movimenta o Jogador com base na sua direção
+            direcaoDoMovimento = inputDeMovimento.normalized;
+            oRigidbody2D.velocity = direcaoDoMovimento * velocidadeDoJogador;
 
-        // Limita a movimentação horizontal do Jogador
-        oRigidbody2D.position = new Vector2(Mathf.Clamp(oRigidbody2D.position.x, xMinimoAtual, xMaximoAtual), oRigidbody2D.position.y);
+            // Limita a movimentação horizontal do Jogador
+            oRigidbody2D.position = new Vector2(Mathf.Clamp(oRigidbody2D.position.x, xMinimoAtual, xMaximoAtual), oRigidbody2D.position.y);
 
-        // Limita a movimentação vertical do Jogador
-        oRigidbody2D.position = new Vector2(oRigidbody2D.position.x, Mathf.Clamp(oRigidbody2D.position.y, yMinimo, yMaximo));
+            // Limita a movimentação vertical do Jogador
+            oRigidbody2D.position = new Vector2(oRigidbody2D.position.x, Mathf.Clamp(oRigidbody2D.position.y, yMinimo, yMaximo));
+        }
+        else
+        {
+            oRigidbody2D.velocity = Vector2.zero;
+        }
     }
 
     public void RodarAnimacaoDeDano()
